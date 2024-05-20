@@ -9,13 +9,13 @@ public class Jump : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
 
     private Rigidbody rb;
-    private bool isGrounded = true;
+    public bool isGrounded = false;
+    public Transform groundCheck;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
-
     void Update()
     {
         if (Input.GetKeyDown(jumpKey) && isGrounded)
@@ -23,7 +23,6 @@ public class Jump : MonoBehaviour
             rb.AddForce(rb.transform.up * jumpStrength, ForceMode.Impulse);
         }
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))

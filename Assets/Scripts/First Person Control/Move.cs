@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Collider),typeof(Rigidbody))]
 public class Move : MonoBehaviour
@@ -8,6 +6,8 @@ public class Move : MonoBehaviour
     public float walkSpeed = 5;
     public float runSpeed = 10;
     public KeyCode runKey = KeyCode.LeftShift;
+    public float drag;
+    public float gravity;
 
     private Rigidbody rb;
 
@@ -24,5 +24,15 @@ public class Move : MonoBehaviour
         float inputZ = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
         rb.transform.Translate(inputX, 0, inputZ);
+        //movement isn't based on velocity, so add a drag factor decreasing velocity
+
+    }
+    private void FixedUpdate()
+    {
+        Gravity();
+    }
+    private void Gravity()
+    {
+        rb.AddForce(Vector3.down * gravity * rb.mass);
     }
 }

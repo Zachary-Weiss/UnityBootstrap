@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1936276106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1936276107}
+  m_Layer: 0
+  m_Name: ThrowPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1936276107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936276106}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.61, y: -0.253, z: 0.626}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5858856649134476598}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3578168214130387988
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3578168214130387988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.513, y: -0.383, z: 1.093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,6 +73,7 @@ GameObject:
   - component: {fileID: 5858856649134476598}
   - component: {fileID: 5858856649134476597}
   - component: {fileID: 5858856649134476596}
+  - component: {fileID: 173465029}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -62,6 +94,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1083689511914324163}
+  - {fileID: 1936276107}
   m_Father: {fileID: 5858856649458810825}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -116,6 +149,28 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5858856649134476595}
   m_Enabled: 1
+--- !u!114 &173465029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5858856649134476595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950f41369a6bdfc429bc7ee9b192b018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToRespawnBomb: 1
+  timeToPrepThrow: 1
+  throwForce: 30
+  lobForce: 0
+  holdPos: {fileID: 1083689511914324163}
+  throwPos: {fileID: 1936276107}
+  resetBlockObject: {fileID: 0}
+  timerBomb: {fileID: 383091691013010505, guid: 077727f07a2c200459a8187d9411ab9a, type: 3}
+  impactBomb: {fileID: 0}
+  bombPrefab: {fileID: 383091691013010505, guid: 077727f07a2c200459a8187d9411ab9a, type: 3}
 --- !u!1 &5858856649458810832
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +187,6 @@ GameObject:
   - component: {fileID: 5858856649458810836}
   - component: {fileID: 5858856649458810835}
   - component: {fileID: 5858856649458810834}
-  - component: {fileID: 5858856649458810833}
   m_Layer: 0
   m_Name: First Person Character
   m_TagString: Player
@@ -279,17 +333,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpStrength: 5
   jumpKey: 32
---- !u!114 &5858856649458810833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5858856649458810832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44afc45e6911b44e3beadf2ede357f9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  crouchAmount: 0.25
-  crouchKey: 306

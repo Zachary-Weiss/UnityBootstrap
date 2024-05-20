@@ -20,12 +20,6 @@ public class Crouch : MonoBehaviour
 
     void Update()
     {
-        float currentYVal = Input.GetKey(crouchKey)
-                                    ? normalYLocalPosition - crouchAmount
-                                    : normalYLocalPosition;
 
-        rb.transform.localScale = new Vector3(rb.transform.localScale.x,
-                                                  currentYVal,
-                                                  rb.transform.localScale.z);
     }
 }
